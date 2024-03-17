@@ -18,7 +18,7 @@ def main():
     uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
     if uploaded_image is not None:
         # Read the uploaded image
-        image = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), 1)
+        image = cv2.imdecode(np.frombuffer(uploaded_image.read(), np.uint8), 1)
 
         # Detect faces in the uploaded image
         boxes, _ = mtcnn.detect(image)
